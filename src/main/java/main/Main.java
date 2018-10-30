@@ -1,6 +1,9 @@
 package main;
 import java.time.LocalDate;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import dao.PersonDao;
 import dao.ReservationsDao;
 import dao.VolsDao;
@@ -11,8 +14,17 @@ import model.Reservation;
 import model.Vol;
 
 public class Main {
-
+	private static final Logger logger = LoggerFactory.getLogger(Main.class);
 	public static void main(String[] args) {
+		Main main = new Main();
+		main.run();
+		
+	}
+	
+	public void run() {
+
+		
+		logger.info("Main start");
 		
 		Menu.menu();
 		
@@ -48,14 +60,15 @@ public class Main {
 		
 		v1.setArrivalCity("Bankok");
 		volsDao.merge(v1);
-//		reservationDao.remove(r1);
-//		reservationDao.remove(r2);
-//		reservationDao.remove(r3);
-//		volsDao.remove(v2);
+		reservationDao.remove(r1);
+		reservationDao.remove(r2);
+		reservationDao.remove(r3);
+		volsDao.remove(v2);
 		
 		System.out.println(volsDao.find(3));
 		System.out.println(personDao.findAll());
 		
+		logger.info("Main end");
 	}
-
+	
 }

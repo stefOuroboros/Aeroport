@@ -1,0 +1,8 @@
+16:31:27.326 [main] INFO  dao.VolsDao - instance() 
+16:33:18.275 [main] INFO  dao.VolsDao - instance() 
+16:57:00.898 [main] INFO  dao.VolsDao - instance() 
+16:57:02.445 [main] INFO  dao.PersonDao - instance() 
+16:57:02.451 [main] INFO  dao.ReservationsDao - instance() 
+17:03:08.354 [main] INFO  dao.VolsDao - instance() 
+17:03:09.887 [main] INFO  dao.PersonDao - instance() 
+17:03:09.894 [main] INFO  dao.ReservationsDao - instance() 
