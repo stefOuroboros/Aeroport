@@ -49,6 +49,16 @@ public class Vol {
 		this.arrivalCity = arrivalCity;
 		this.departureDate = departureDate;
 	}
+	
+	public Vol(Vol vol2) {
+		this.flightNumber = vol2.flightNumber;
+		this.planeType = vol2.planeType;
+		this.passengersMax = vol2.passengersMax;
+		this.departureCity = vol2.departureCity;
+		this.arrivalCity = vol2.arrivalCity;
+		this.departureDate = vol2.departureDate;
+		
+	}
 
 	public Long getId() {
 		return id;

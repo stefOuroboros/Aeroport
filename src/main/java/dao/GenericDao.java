@@ -14,14 +14,13 @@ public class GenericDao<T> {
 	}
 	
 	public T find(long l) {
-		EntityManager em = DataBaseHelper.createEntityManager();
-		T findClient = em.find(klass, l);
-		return findClient;
+		EntityManager em = DatabaseHelper.createEntityManager();
+		return em.find(klass, l);
 	}
 	
 	public List<T> findAll() {
-		EntityManager em = DataBaseHelper.createEntityManager();
-		DataBaseHelper.beginTx(em);
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
 		List<T> listT = null;
 		TypedQuery<T> query = em.createQuery("FROM " + klass.getName() + " k", klass);
 		listT = query.getResultList();
@@ -29,37 +28,37 @@ public class GenericDao<T> {
 	}
 	
 	public void persist(T klass) {
-		EntityManager em = DataBaseHelper.createEntityManager();
-		DataBaseHelper.beginTx(em);
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
 		try {
 			em.persist(klass);
-			DataBaseHelper.commitTxAndClose(em);
+			DatabaseHelper.commitTxAndClose(em);
 		} catch (Exception e) {
-			DataBaseHelper.rollbackTxAndClose(em);
+			DatabaseHelper.rollbackTxAndClose(em);
 			e.printStackTrace();
 		}
 	}
 	
 	public void remove(T klass) {
-		EntityManager em = DataBaseHelper.createEntityManager();
-		DataBaseHelper.beginTx(em);
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
 		try {
 			em.remove(em.contains(klass) ? klass : em.merge(klass));
-			DataBaseHelper.commitTxAndClose(em);
+			DatabaseHelper.commitTxAndClose(em);
 		} catch (Exception e) {
-			DataBaseHelper.rollbackTxAndClose(em);
+			DatabaseHelper.rollbackTxAndClose(em);
 			e.printStackTrace();
 		}
 	}
 	
 	public void merge(T klass) {
-		EntityManager em = DataBaseHelper.createEntityManager();
-		DataBaseHelper.beginTx(em);
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
 		try {
 			em.merge(klass);
-			DataBaseHelper.commitTxAndClose(em);
+			DatabaseHelper.commitTxAndClose(em);
 		} catch (Exception e) {
-			DataBaseHelper.rollbackTxAndClose(em);
+			DatabaseHelper.rollbackTxAndClose(em);
 			e.printStackTrace();
 		}
 	}

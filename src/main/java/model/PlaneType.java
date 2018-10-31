@@ -5,4 +5,5 @@ public enum PlaneType {
 	A340,
 	A380,
 	B747;
+	
 }

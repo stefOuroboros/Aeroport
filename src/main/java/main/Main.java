@@ -26,18 +26,16 @@ public class Main {
 	public void run() {
 
 		logger.info("Main start");
-
-		Menu.menu();
+		Menu.menuBase();
 
 		VolsDao volsDao = VolsDao.instance();
 		Vol v1 = new Vol("0001", PlaneType.A330, 150L, "Montpellier", "Paris", LocalDate.now());
 		volsDao.persist(v1);
-
 		Vol v2 = new Vol("0002", PlaneType.A340, 200L, "Marseille", "Beijin", LocalDate.parse("2018-10-31"));
 		volsDao.persist(v2);
-
 		Vol v3 = new Vol("0003", PlaneType.B747, 80L, "Calais", "Londres", LocalDate.parse("2019-01-05"));
 		volsDao.persist(v3);
+		
 
 		PersonDao personDao = PersonDao.instance();
 		Person p1 = new Person("Stef", "Gallois", LocalDate.parse("1993-10-20"));

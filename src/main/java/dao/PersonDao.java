@@ -13,11 +13,11 @@ public class PersonDao extends GenericDao<Person> {
 		super(Person.class);
 	}
 	
-	static public PersonDao instance() {
+	public static PersonDao instance() {
 		logger.info("instance()");
 		if (dao == null) {
 			dao = new PersonDao();
 		}
 		return dao;
-	}
+	} 
 }

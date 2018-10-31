@@ -14,7 +14,7 @@ public class ReservationsDao extends GenericDao<Reservation> {
 		super(Reservation.class);
 	}
 	
-	static public ReservationsDao instance() {
+	public static ReservationsDao instance() {
 		logger.info("instance()");
 		if (dao == null) {
 			dao = new ReservationsDao();
